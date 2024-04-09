@@ -4,7 +4,7 @@ import CustomerService from './services/Customer'
 
 function CustomerList() {
 
-// State
+// Stateen sijoitetaan palvelimelta tulevat asiakkaat
 const [customers, setCustomers] = useState([])
 
 // Suoritetaan aina alussa kun komponentti latautuu
@@ -17,6 +17,10 @@ useEffect(() => {
   return (
     <>
         <h2>Customers</h2>
+
+        {customers && customers.map(c => (
+            <h4>{c.companyName} from {c.city}</h4>
+        ))}
        
     </>
   )
