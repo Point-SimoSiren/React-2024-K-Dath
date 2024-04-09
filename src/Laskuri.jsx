@@ -10,6 +10,7 @@ function Laskuri() {
 
   return (
     <>
+        
         {!show && <button onClick={() => setShow(true)}>Näytä laskuri</button>}
         {show && <button onClick={() => setShow(false)}>Piilota laskuri</button>}
 
