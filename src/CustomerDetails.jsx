@@ -10,7 +10,7 @@ const [showDetails, setShowDetails] = useState(false)
 
   return (
     <>
-         <h4>{props.customer.companyName}</h4>
+         <h4 onClick={() => setShowDetails(!showDetails)}>{props.customer.companyName}</h4>
 
          {showDetails && <div className='details'>
             <button>Edit</button>
