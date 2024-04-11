@@ -5,4 +5,15 @@
   text-align: center;
 }
 
+.details {
+  background-color: greenyellow;
+  width: 35%;
+  margin: auto;
+  border-radius: 10px;
+  padding: 1px;
+  border-style: solid;
+  border-color: darkgreen;
+  margin-bottom: 5px;
+  }
+
 
