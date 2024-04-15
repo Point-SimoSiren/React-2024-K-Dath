@@ -17,6 +17,7 @@ function CustomerAdd() {
   const [Phone, setPhone] = useState('');
   const [Fax, setFax] = useState('');
 
+  
   // Formin submitointifunktio
   const submitForm = (event) => {
     event.preventDefault()

@@ -8,11 +8,8 @@ function App() {
   return (
     <>
         <h1>Northwind Corporation</h1>
-
         <CustomerList />
-
         <Laskuri />
-       
     </>
   )
 }
