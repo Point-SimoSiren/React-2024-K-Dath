@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import CustomerService from './services/Customer'
+import CustomerEdit from './CustomerEdit'
 
 // Komponentti saa "propseina" eli parametreina CustomerList.jsx komponentilta
 // kyseessä olevan asiakkaan tiedot customer={c} -kohdassa rivi n.23
@@ -8,6 +9,7 @@ function CustomerDetails(props) {
 
 // State määrittää näytetäänkö vain companyname H4 vai enemmän tietoja details div
 const [showDetails, setShowDetails] = useState(false)
+const [editMode, setEditMode] = useState(false)
 
 
 // Poistonapin tapahtumankäsittelijä
@@ -32,9 +34,14 @@ const removeCustomer = (customer) => {
           </h4>
 
          {showDetails && <div className='details'>
-            <button>Edit</button>
+
+            <button onClick={() => setEditMode(!editMode)}>Edit</button>
+
             <button onClick={() => removeCustomer(props.customer)}>Delete</button>
-                <table>
+
+            {editMode && <CustomerEdit customer={props.customer} />}
+
+               {!editMode && <table>
                     <tr>
                         <th>Contact person</th>
                         <th>Phone</th>
@@ -49,7 +56,7 @@ const removeCustomer = (customer) => {
                         <td>{props.customer.city}</td>
                         <td>{props.customer.country}</td>
                     </tr>
-                </table>
+                </table> }
             </div>}
        
     </>
