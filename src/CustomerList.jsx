@@ -11,6 +11,8 @@ function CustomerList() {
 // setCustomers metodilla voidaan asettaa customers -state
 const [customers, setCustomers] = useState([])
 const [showAddForm, setShowAddForm] = useState(false)
+const [search, setSearch] = useState("")
+
 
 // Suoritetaan aina alussa kun komponentti latautuu
 useEffect(() => {
@@ -26,11 +28,24 @@ useEffect(() => {
         <button onClick={() => setShowAddForm(!showAddForm)}>Add new customer</button>
 
         {showAddForm && <CustomerAdd />}
-        
 
-        {customers && customers.map(c => (
-            <CustomerDetails key={c.customerId} customer={c} />
-        ))}
+        <br />
+
+        {/* Hakukenttä */}
+        <input type="text" value={search} placeholder='Search by company name'
+        onChange={({target}) => setSearch(target.value) }
+        />
+        
+        {/* Jos data saapunut niin customerit loopataan läpi ja renderöidään */}
+        {customers && customers.map(c => {
+            let lowerCaseName = c.companyName.toLowerCase()
+            if (lowerCaseName.indexOf(search.toLowerCase()) > -1) {
+            return(
+           <CustomerDetails key={c.customerId} customer={c} />
+            )
+            }
+        }
+        )}
        
     </>
   )
