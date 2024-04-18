@@ -28,8 +28,6 @@ useEffect(() => {
           by clicking 'Customers' header</span>
           </h2>
 
-       
-
         {showCustomers && <div>
 
         <button onClick={() => setShowAddForm(!showAddForm)}>Add new customer</button>
