@@ -9,6 +9,7 @@ function App() {
     <>
         <h1>Northwind Corporation</h1>
         <CustomerList />
+        <br/>
         <Laskuri />
     </>
   )

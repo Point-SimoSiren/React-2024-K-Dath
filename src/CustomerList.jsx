@@ -12,7 +12,7 @@ function CustomerList() {
 const [customers, setCustomers] = useState([])
 const [showAddForm, setShowAddForm] = useState(false)
 const [search, setSearch] = useState("")
-
+const [showCustomers, setShowCustomers] = useState(false)
 
 // Suoritetaan aina alussa kun komponentti latautuu
 useEffect(() => {
@@ -23,7 +23,14 @@ useEffect(() => {
 
   return (
     <>
-        <h2>Customers</h2>
+        <h2 className='tooltip' onClick={() => setShowCustomers(!showCustomers)}>
+          Customers <span class="tooltiptext">Show or hide customer listing
+          by clicking 'Customers' header</span>
+          </h2>
+
+       
+
+        {showCustomers && <div>
 
         <button onClick={() => setShowAddForm(!showAddForm)}>Add new customer</button>
 
@@ -47,6 +54,7 @@ useEffect(() => {
         }
         )}
        
+       </div>}
     </>
   )
 }
